@@ -20,7 +20,7 @@ class QueueTests(unittest.TestCase):
         self.q.enqueue(10)
         self.q.enqueue(12)
         self.q.enqueue(14)
-        self.q.enqueue(16)
+        self.q.enqueue(16) 
         self.q.enqueue(18)
         self.assertEqual(self.q.len(), 9)
 
@@ -43,6 +43,3 @@ class QueueTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
-
-        
