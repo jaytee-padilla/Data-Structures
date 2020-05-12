@@ -51,7 +51,7 @@ class Queue:
     def __len__(self):
         return self.length
 
-    def push(self, value):
+    def enqueue(self, value):
         if self.length == 0:
             self.length += 1
             self.storage.add_to_head(value)
@@ -59,7 +59,7 @@ class Queue:
             self.length += 1
             self.storage.add_to_tail(value)
 
-    def pop(self):
+    def dequeue(self):
         if self.length == 0:
             return None
         elif self.length == 1:
@@ -67,4 +67,4 @@ class Queue:
             return self.storage.remove_from_head()
         else:
             self.length -= 1
-            return self.storage.remove_from_tail()
+            return self.storage.remove_from_head()
