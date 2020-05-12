@@ -1,3 +1,5 @@
+from doubly_linked_list import DoublyLinkedList
+
 """
 A queue is a data structure whose primary purpose is to store and
 return elements in First In First Out order. 
@@ -17,22 +19,52 @@ What would that look like? How many Stacks would you need? Try it!
 """
 array implementation of queue
 """
+# class Queue:
+#     def __init__(self):
+#         self.size = 0
+#         self.storage = []
+#         self.length = 0
+    
+#     def __len__(self):
+#         return self.length
+
+#     def enqueue(self, value):
+#         self.length += 1
+#         self.storage.append(value)
+
+#     def dequeue(self):
+#         if self.length == 0:
+#             return None
+#         else:
+#             self.length -= 1
+#             return self.storage.pop(0)
+
+"""
+Linked List implementation of queue
+"""
 class Queue:
     def __init__(self):
         self.size = 0
-        self.storage = []
+        self.storage = DoublyLinkedList()
         self.length = 0
-    
+
     def __len__(self):
         return self.length
 
-    def enqueue(self, value):
-        self.length += 1
-        self.storage.append(value)
+    def push(self, value):
+        if self.length == 0:
+            self.length += 1
+            self.storage.add_to_head(value)
+        else:
+            self.length += 1
+            self.storage.add_to_tail(value)
 
-    def dequeue(self):
+    def pop(self):
         if self.length == 0:
             return None
+        elif self.length == 1:
+            self.length -= 1
+            return self.storage.remove_from_head()
         else:
             self.length -= 1
-            return self.storage.pop(0)
+            return self.storage.remove_from_tail()
