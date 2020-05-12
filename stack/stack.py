@@ -10,6 +10,10 @@ Make sure the Stack tests pass.
 3. What is the difference between using an array vs. a linked list when 
 implementing a Stack?
 """
+
+"""
+array implementation of stack
+"""
 class Stack:
     def __init__(self):
         self.size = 0
@@ -29,3 +33,4 @@ class Stack:
         else:
             self.length -= 1
             return self.storage.pop()
+
